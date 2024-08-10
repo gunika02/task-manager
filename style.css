@@ -178,3 +178,136 @@ body {
 .content-section.active {
     display: block;
 }
+
+/* aaryan */
+
+
+.task-item {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+  }
+  
+  .task-item:last-child {
+    border-bottom: none;
+  }
+  
+  .task-checkbox {
+    margin-right: 10px;
+  }
+  
+  .task-name {
+    flex: 1;
+  }
+  
+  .task-delete {
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  
+  .task-delete:hover {
+    background-color: #cc0000;
+  }
+  
+  
+  .task-item.completed {
+    text-decoration: line-through;
+    color: #666;
+  }
+  
+  .task-item.completed .task-checkbox {
+    accent-color: #666;
+  }
+  
+  
+  .task-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+  }
+  
+  .task-modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 400px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .task-modal-content h3 {
+    margin-top: 0;
+  }
+  
+  .task-modal-content input[type="text"],
+  .task-modal-content textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  .task-modal-content .task-options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .task-modal-content .task-options button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  
+  .task-modal-content .task-options button:hover {
+    background-color: #3e8e41;
+  }
+  
+  .task-modal-content .task-completed {
+    margin-bottom: 20px;
+  }
+  
+  .task-modal-content .task-completed input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  .task-modal-content .task-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .task-modal-content .task-footer button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  
+  .task-modal-content .task-footer button:hover {
+    background-color: #3e8e41;
+  }
+  
+  .task-modal-content .task-footer #cancel-task {
+    background-color: #ff0000;
+  }
+  
+  .task-modal-content .task-footer #cancel-task:hover {
+    background-color: #cc0000;
+  }
