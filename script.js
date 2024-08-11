@@ -22,9 +22,10 @@ cancelTaskBtn.onclick = function() {
 addTaskBtn.onclick = function() {
     const taskName = document.getElementById("task-name").value;
     const taskDesc = document.getElementById("task-desc").value;
+    const taskDuedate = document.getElementById("task-duedate").value;
     
     if (taskName) {
-        addTask(taskName, taskDesc, currentSection);
+        addTask(taskName, taskDesc, currentSection , taskDuedate);
         document.getElementById("task-name").value = '';
         document.getElementById("task-desc").value = '';
         modal.style.display = "none";
@@ -33,7 +34,7 @@ addTaskBtn.onclick = function() {
     }
 }
 
-function addTask(name, desc, section) {
+function addTask(name, desc, section , duedate) {
     const taskItem = document.createElement("div");
     taskItem.classList.add("task-item");
     
@@ -42,9 +43,14 @@ function addTask(name, desc, section) {
     
     const taskDescription = document.createElement("p");
     taskDescription.textContent = desc;
+
+    const taskDuedate = document.createElement("h3");
+    taskDuedate.textContent = "hello";
     
     taskItem.appendChild(taskTitle);
     taskItem.appendChild(taskDescription);
+
+    taskItem.appendChild(taskDuedate);
     
     const taskList = document.getElementById(`tasks-list-${section}`);
     taskList.appendChild(taskItem);
@@ -53,6 +59,7 @@ function addTask(name, desc, section) {
     if (taskList.children.length > 0) {
         emptyState.style.display = "none";
     }
+
 }
 
 // Navigation control
@@ -233,12 +240,14 @@ modal.style.display = "none";
 }
 
 addTaskBtn.onclick = function() {
-    const taskName = document.getElementById("task-name").value; const taskDesc = document.getElementById("task-desc").value;
-    
+    const taskName = document.getElementById("task-name").value; 
+    const taskDesc = document.getElementById("task-desc").value;
+    const taskDueDate = document.getElementById("task-duedate").value;
     if (taskName) {
-        addTask(taskName, taskDesc, currentSection);
+        addTask(taskName, taskDesc, currentSection, taskDueDate);
         document.getElementById("task-name").value = '';
         document.getElementById("task-desc").value = '';
+        document.getElementById("task-duedate").value = '';
         modal.style.display = "none";
         
     
@@ -249,7 +258,7 @@ initializeTaskItems();
     }
 }
 
-function addTask(name, desc, section) {
+function addTask(name, desc, section, dueDate) {
 
 
     const taskItem = document.createElement("div");
@@ -258,17 +267,18 @@ function addTask(name, desc, section) {
 
     
     const taskTitle = document.createElement("h4");
-
     taskTitle.textContent = name;
     
- const taskDescription = document.createElement("p");
+    const taskDescription = document.createElement("p");
     taskDescription.textContent = desc;
+
+
+    const taskDueDate = document.createElement("h4");
+    taskDueDate.textContent = "Due Date: " + dueDate;
     
     taskItem.appendChild(taskTitle);
     taskItem.appendChild(taskDescription);
-
-
-
+    taskItem.appendChild(taskDueDate);
 
     const taskList = document.getElementById(`tasks-list-${section}`);
     taskList.appendChild(taskItem);
@@ -310,11 +320,3 @@ function initializeTaskItems() {
 
 
 initializeTaskItems();
-
-
-
-
-
-
-
-
