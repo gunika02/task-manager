@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Manager </title>
+    <title>Task Manager</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="sidebar">
-
         <button class="add-task" id="open-modal">+ Add task</button>
         <ul class="menu" id="menu">
             <li class="menu-item active" data-section="inbox">Inbox</li>
@@ -16,11 +15,10 @@
             <li class="menu-item" data-section="upcoming">Upcoming</li>
             <li class="menu-item" data-section="filters-labels">Filters & Labels</li>
         </ul>
-        
     </div>
     <div class="main-content" id="content">
         <div id="inbox" class="content-section active">
-            <h2> &nbsp Inbox</h2>
+            <h2>&nbsp;Inbox</h2>
             <div class="tasks-list" id="tasks-list-inbox">
                 <!-- Tasks will be appended here -->
             </div>
@@ -30,38 +28,7 @@
                 <p>Well done! All your tasks are organized in the right place.</p>
             </div>
         </div>
-        <div id="today" class="content-section">
-            <h2>Today</h2>
-            <div class="tasks-list" id="tasks-list-today">
-                <!-- Tasks will be appended here -->
-            </div>
-            <div class="empty-state" id="empty-state-today">
-                <img src="focus.png " alt="Empty State">
-                <h3>Focus on today</h3>
-                <p>Let's accomplish today's goals.</p>
-            </div>
-        </div>
-        <div id="upcoming" class="content-section">
-            <h2>Upcoming</h2>
-            <div class="tasks-list" id="tasks-list-upcoming">
-                <!-- Tasks will be appended here -->
-            </div>
-            <div class="empty-state" id="empty-state-upcoming">
-                <img src="img.png"   alt="Empty State">
-                <h3>Plan ahead</h3>
-                <p>You're prepared for the days to come.</p>
-            </div>
-        </div>
-        <div id="filters-labels" class="content-section">
-            <h2>Filters & Labels</h2>
-            <div class="tasks-list" id="tasks-list-filters-labels">
-                <!-- Tasks will be appended here -->
-            </div>
-           
-                <h3>Organize your tasks</h3>
-                <p>Apply filters and labels to manage tasks efficiently.</p>
-            </div>
-        </div>
+        <!-- Other content sections ... -->
     </div>
 
     <!-- Task Modal -->
@@ -71,9 +38,15 @@
             <input type="text" id="task-name" placeholder="Task name">
             <textarea id="task-desc" placeholder="Description"></textarea>
             <div class="task-options">
-              <!-- <button class="option-btn">Due date</button> -->
-              <label>Due Date</label><br><input id="task-duedate" type="date" />
-                <button class="option-btn">Priority</button>
+                <label>Due Date</label><br><input id="task-duedate" type="date" />
+                <label>Priority</label>
+                <select id="task-priority">
+                    <option value="5">Very High</option>
+                    <option value="4">High</option>
+                    <option value="3">Medium</option>
+                    <option value="2">Low</option>
+                    <option value="1">Very Low</option>
+                </select>
                 <button class="option-btn">Reminders</button>
             </div>
             <div class="task-footer">
@@ -82,36 +55,10 @@
             </div>
         </div>
     </div>
-    
+
     <script src="script.js"></script>
 
-    <!-- aaryan -->
-
-    <div class="task-modal-content">
-        <h3>Task name</h3>
 
 
-  <input type="text" id="task-name" placeholder="Task name">
-      
-  <textarea id="task-desc" placeholder="Description"></textarea>
-     <div class="task-options">
-            <!-- <button class="option-btn">Due date</button> --> 
-            <label>Due Date</label><input type="date" />  
-
-            <button class="option-btn">Priority</button>
-            <button class="option-btn">Reminders</button>
-        </div>
-
-
-
- <div class="task-completed">
-            <input type="checkbox" id="task-completed">
-            <label for="task-completed">Mark as completed</label>
-        </div>
-      <div class="task-footer">
-            <button id="cancel-task" class="cancel-btn">Cancel</button>
-             <button id="add-task" class="add-task-btn">Add task</button>
-        </div>
- </div>
 </body>
-</html>
+</html> 
