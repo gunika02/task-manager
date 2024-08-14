@@ -460,7 +460,7 @@ function getPriorityText(priority) {
     }
 }
 
-// Navigation control...
+// Navigation control.....
 menuItems.forEach(item => {
     item.addEventListener("click", function() {
         menuItems.forEach(menu => menu.classList.remove("active"));
