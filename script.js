@@ -1,4 +1,4 @@
-/* // JavaScript to handle modal, task addition, and navigation
+/* // JavaScript to handle modal, task addition, and navigation..
 
 const modal = document.getElementById("task-modal");
 const openModalBtn = document.getElementById("open-modal");
