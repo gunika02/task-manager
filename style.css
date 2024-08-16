@@ -375,7 +375,7 @@ body {
 #searchTask {
   padding-left: 30px; /* Space for the icon */
   width: 98%;
-  height: 35px; /* Adjust the height as necessary */
+  height: 35px; /*Adjust the height as necessary */
   border-radius: 5px;
   border: 1px solid #ccc;
 }

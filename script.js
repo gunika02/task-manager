@@ -539,7 +539,7 @@ function toggleAddTaskButton() {
 
 function deleteTask(button) {
     const taskItem = button.parentElement; // Get the parent task item
-    taskItem.parentNode.removeChild(taskItem); // Remove the task item from its parent list
+    taskItem.parentNode.removeChild(taskItem); //Remove the task item from its parent list
   }
   
   const deleteButtons = document.querySelectorAll(".task-delete");
