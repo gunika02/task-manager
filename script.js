@@ -390,10 +390,25 @@ function addTask(name, desc, section, dueDate, priority) {
     const taskPriorityElement = document.createElement("p");
     taskPriorityElement.classList.add("task-priority");
     taskPriorityElement.textContent = "Priority: " + getPriorityText(priority);
+
+    const priorityColor = getPriorityColor(priority);
+    taskItem.style.borderLeftColor = priorityColor;
+    taskPriorityElement.style.color = priorityColor;
+
+    const deleteButton = document.createElement("button");
+    deleteButton.classList.add("task-delete");
+    deleteButton.textContent = "Delete";
+    deleteButton.addEventListener("click", function() {
+        taskItem.remove();
+        checkEmptyState(section);
+    });
+
     taskItem.appendChild(taskTitle);
     taskItem.appendChild(taskDescription);
     taskItem.appendChild(taskDueDate);
     taskItem.appendChild(taskPriorityElement);
+    taskItem.appendChild(deleteButton);
+    
     
     const taskList = document.getElementById(`tasks-list-${section}`);
     taskList.appendChild(taskItem);
@@ -460,7 +475,40 @@ function getPriorityText(priority) {
     }
 }
 
-// Navigation control.....
+function getPriorityColor(priority) {
+    switch (priority) {
+        case "5":
+            return "#f33f39"; // Very High
+        case "4":
+            return "#f58d42"; // High
+        case "3":
+            return "#fbeb08"; // Medium
+        case "2":
+            return "#7db77d"; // Low
+        case "1":
+            return "#86bcec"; // Very Low
+        default:
+            return "#ccc"; // Default color if priority is not recognized
+    }
+}
+
+
+// Search functionality
+document.getElementById('searchTask').addEventListener('input', function() {
+    let filter = this.value.toLowerCase();
+    let tasks = document.querySelectorAll(`#tasks-list-${currentSection} .task-item`);
+
+    tasks.forEach(function(task) {
+        let text = task.textContent.toLowerCase();
+        task.style.display = text.includes(filter) ? '' : 'none';
+    });
+
+    const visibleTasks = Array.from(tasks).filter(task => task.style.display !== 'none');
+    const emptyState = document.getElementById(`empty-state-${currentSection}`);
+    emptyState.style.display = visibleTasks.length > 0 ? 'none' : 'block';
+});
+
+// Navigation control
 menuItems.forEach(item => {
     item.addEventListener("click", function() {
         menuItems.forEach(menu => menu.classList.remove("active"));
@@ -481,40 +529,22 @@ window.onclick = function(event) {
 }
 
 function toggleAddTaskButton() {
-    const addTaskBtn = document.getElementById('open-modal');
-    const taskModal = document.getElementById('task-modal');
-    
-    if (currentSection === 'inbox') {
-        addTaskBtn.style.display = 'block';
-        taskModal.style.display = 'none';  
+    const addTaskBtn = document.getElementById("open-modal");
+    if (currentSection === "filters-labels") {
+        addTaskBtn.style.display = "none";
     } else {
-        addTaskBtn.style.display = 'none';
-        taskModal.style.display = 'none';  
+        addTaskBtn.style.display = "block";
     }
 }
 
-function initializeTaskItems() {
-    const taskItems = document.querySelectorAll('.task-item');
-    taskItems.forEach((taskItem) => {
-        const deleteBtn = taskItem.querySelector('.task-delete');
-        if (deleteBtn) {
-            deleteBtn.addEventListener('click', () => {
-                taskItem.remove();
-                const taskList = taskItem.parentNode;
-                const emptyState = document.getElementById(`empty-state-${taskList.id.split('-')[1]}`);
-                if (taskList.children.length === 0) {
-                    emptyState.style.display = 'block';
-                }
-            });
-        }
-
-        const checkbox = taskItem.querySelector('.task-checkbox');
-        if (checkbox) {
-            checkbox.addEventListener('click', () => {
-                taskItem.classList.toggle('completed');
-            });
-        }
+function deleteTask(button) {
+    const taskItem = button.parentElement; // Get the parent task item
+    taskItem.parentNode.removeChild(taskItem); // Remove the task item from its parent list
+  }
+  
+  const deleteButtons = document.querySelectorAll(".task-delete");
+  deleteButtons.forEach(button => {
+    button.addEventListener("click", function() {
+      deleteTask(this);
     });
-}
-
-initializeTaskItems();
+  });

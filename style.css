@@ -59,24 +59,30 @@ body {
   width: 100%;
 }
 
+/* Task Item Styles */
 .task-item {
   background-color: #fff;
   padding: 15px;
-  border-radius: 5px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 10px;
-  white-space: pre;
+  display: flex;
+  flex-direction: column; /* Arrange items in a single column */
+  align-items: flex-start;
+  gap: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  border-left: 5px solid transparent; /* Default border color (will be overridden by JavaScript) */
 }
 
 .task-item h4 {
-  margin: 0;
   font-size: 18px;
   color: #333;
+  margin: 0;
 }
 
 .task-item p {
-  margin: 5px 0 0;
-  color: #777;
+  font-size: 14px;
+  color: #666;
+  margin: 0;
 }
 
 .empty-state {
@@ -276,6 +282,7 @@ body {
   flex-direction: column; /* Changed from row to column */
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+ 
 }
 
 /* Task Priority and Timer.. */
@@ -319,3 +326,69 @@ body {
   color: #007bff;
   font-size: 0.9em;
 }
+
+/* Delete Button */
+.task-delete {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-start; /* Aligns the button to the start (left side) */
+}
+
+.task-delete:hover {
+  background-color: #ff4c4c;
+}
+
+/* Priority Colors */
+.task-priority-1 {
+  color: #86bcec ; /* Very Low Priority */
+}
+
+.task-priority-2 {
+  color: #7db77d; /* Low Priority */
+}
+
+.task-priority-3 {
+  color: #fbeb08; /* Medium Priority */
+}
+
+.task-priority-4 {
+  color: #f58d42 ; /* High Priority */
+}
+
+.task-priority-5 {
+  color: #f33f39; /* Very High Priority */
+}
+
+/* Basic styles for the search bar */
+.search-container {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+#searchTask {
+  padding-left: 30px; /* Space for the icon */
+  width: 98%;
+  height: 35px; /* Adjust the height as necessary */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #999; /* Icon color */
+  pointer-events: none; /* Prevent click events on the icon */
+}
+
+
+
+
