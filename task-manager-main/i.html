@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <button class="add-task" id="open-modal">+ Add task</button>
+        <ul class="menu" id="menu">
+            <li class="menu-item active" data-section="inbox">Inbox</li>
+            <li class="menu-item" data-section="today">Today</li>
+            <li class="menu-item" data-section="upcoming">Upcoming</li>
+            <li class="menu-item" data-section="filters-labels">Filters & Labels</li>
+        </ul>
+    </div>
+    <div class="main-content" id="content">
+        <div id="inbox" class="content-section active">
+            <h2>&nbsp;Inbox</h2>
+
+                         <!-- Search bar -->
+            <div class="search-container">
+                <input type="text" id="searchTask" placeholder="&nbsp;&nbsp;Search tasks...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+      
+            <div class="tasks-list" id="tasks-list-inbox">
+                <!-- Tasks will be appended here -->
+            </div>
+            <div class="empty-state" id="empty-state-inbox">
+                <img src="peace.png" alt="empty-state">
+                <h3>Your peace of mind is priceless</h3>
+               
+            </div>
+        </div>
+        <!-- Other content sections ..... -->
+    </div>
+
+    <!-- Task Modal -->
+    <div class="task-modal" id="task-modal">
+        <div class="task-modal-content">
+            <h3>Task name</h3>
+            <input type="text" id="task-name" placeholder="Task name">
+            <textarea id="task-desc" placeholder="Description"></textarea>
+            <div class="task-options">
+                <label>Due Date</label><br><input id="task-duedate" type="date" />
+                <label>Priority</label>
+                <select id="task-priority">
+                    <option value="5">Very High</option>
+                    <option value="4">High</option>
+                    <option value="3">Medium</option>
+                    <option value="2">Low</option>
+                    <option value="1">Very Low</option>
+                </select>
+                <button class="option-btn">Reminders</button>
+            </div>
+            <div class="task-footer">
+                <button id="cancel-task" class="cancel-btn">Cancel</button>
+                <button id="add-task" class="add-task-btn">Add task</button>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+
+
+</body>
+</html> 
+
+
+
+
+
+
+
