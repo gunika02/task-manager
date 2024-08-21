@@ -595,3 +595,33 @@ function deleteTask(button) {
     // Store the original addTask function for reset
     const originalAddTask = addTaskBtn.onclick;
 }
+
+// 2nd hatt sala
+
+
+
+ 
+
+const themeToggleBtn = document.getElementById('theme-toggle');
+const themeIcon = document.getElementById('theme-icon');
+const modeText = document.getElementById('mode-text');
+
+// Default is light theme
+let isDarkMode = false;
+
+themeToggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    document.body.classList.toggle('light-theme');
+    
+    
+    isDarkMode = !isDarkMode;
+    if (isDarkMode) {
+        themeIcon.innerHTML = '<i class="fas fa-moon"></i>';  
+        modeText.textContent = 'Nightmode';
+        themeToggleBtn.classList.add('dark');
+    } else {
+        themeIcon.innerHTML = '<i class="fas fa-sun"></i>';  
+        modeText.textContent = 'Daymode';
+        themeToggleBtn.classList.remove('dark');
+    }
+});
