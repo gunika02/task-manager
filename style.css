@@ -327,21 +327,7 @@ body {
   font-size: 0.9em;
 }
 
-/* Delete Button */
-.task-delete {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 8px;
-  font-size: 14px;
-  border-radius: 5px;
-  cursor: pointer;
-  align-self: flex-start; /* Aligns the button to the start (left side) */
-}
 
-.task-delete:hover {
-  background-color: #ff4c4c;
-}
 
 /* Priority Colors */
 .task-priority-1 {
@@ -390,5 +376,33 @@ body {
 }
 
 
+.task-edit {
+  background-color: #ffa500;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-start; /* Aligns the button to the start (left side) */
+}
 
+.task-edit:hover {
+  background-color: #e69500;
+}
 
+/* Delete Button */
+.task-delete {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-start; /* Aligns the button to the start (left side) */
+}
+
+.task-delete:hover {
+  background-color: #ff4c4c;
+}

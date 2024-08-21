@@ -403,11 +403,19 @@ function addTask(name, desc, section, dueDate, priority) {
         checkEmptyState(section);
     });
 
+    const editButton = document.createElement("button");
+    editButton.classList.add("task-edit");
+    editButton.textContent = "Edit";
+    editButton.addEventListener("click", function() {
+        editTask(taskItem, name, desc, dueDate, priority);
+    });
+
     taskItem.appendChild(taskTitle);
     taskItem.appendChild(taskDescription);
     taskItem.appendChild(taskDueDate);
     taskItem.appendChild(taskPriorityElement);
     taskItem.appendChild(deleteButton);
+    taskItem.appendChild(editButton);
     
     
     const taskList = document.getElementById(`tasks-list-${section}`);
@@ -548,3 +556,42 @@ function deleteTask(button) {
       deleteTask(this);
     });
   });
+
+  function editTask(taskItem, name, desc, dueDate, priority) {
+    // Pre-fill the modal with the current task details
+    document.getElementById("task-name").value = name;
+    document.getElementById("task-desc").value = desc;
+    document.getElementById("task-duedate").value = dueDate;
+    document.getElementById("task-priority").value = priority;
+
+    // Open the modal
+    modal.style.display = "block";
+
+    // Temporarily disable the Add button and change its text to "Save"
+    addTaskBtn.textContent = "Save";
+    addTaskBtn.onclick = function() {
+        const newName = document.getElementById("task-name").value;
+        const newDesc = document.getElementById("task-desc").value;
+        const newDueDate = document.getElementById("task-duedate").value;
+        const newPriority = document.getElementById("task-priority").value;
+
+        if (newName) {
+            taskItem.querySelector("h4").textContent = newName;
+            taskItem.querySelector("p").textContent = newDesc;
+            taskItem.querySelector(".task-due-date").textContent = "Due Date: " + newDueDate;
+            taskItem.querySelector(".task-priority").textContent = "Priority: " + getPriorityText(newPriority);
+
+            const priorityColor = getPriorityColor(newPriority);
+            taskItem.style.borderLeftColor = priorityColor;
+
+            modal.style.display = "none";
+            addTaskBtn.textContent = "Add Task"; // Reset the button text
+            addTaskBtn.onclick = originalAddTask; // Reset the original onclick function
+        } else {
+            alert("Task name is required!");
+        }
+    };
+
+    // Store the original addTask function for reset
+    const originalAddTask = addTaskBtn.onclick;
+}
