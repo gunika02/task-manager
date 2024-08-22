@@ -46,7 +46,7 @@ body {
 }
 
 .main-content {
-  margin-left: 270px;
+  margin-left: 290px;
   padding: 20px;
 }
 
@@ -70,7 +70,7 @@ body {
   gap: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  border-left: 5px solid transparent; /* Default border color (will be overridden by JavaScript) */
+  border-left: 5px solid transparent; 
 }
 
 .task-item h4 {
@@ -147,11 +147,14 @@ body {
   color: #333;
 }
 
-.task-options {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-}
+ .task-options {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #333;
+} 
 
 .option-btn {
   background-color: #f1f1f1;
@@ -166,6 +169,7 @@ body {
 .task-footer {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .cancel-btn, .add-task-btn {
@@ -184,7 +188,6 @@ body {
   background-color: #ea4c89;
   color: #fff;
 }
-
 .content-section {
   display: none;
 }
@@ -271,6 +274,7 @@ body {
   border-radius: 5px;
   font-size: 14px;
   color: #333;
+  margin: 5px 0px 15px;
 }
 /* Task Item Styles */
 .task-item {

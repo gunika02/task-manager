@@ -7,6 +7,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
 </head>
 <body class="light-theme">
     <div class="sidebar">
@@ -55,17 +56,57 @@
             </div>
         </div>
         <!-- Other content sections .... -->
+
+        <div id="filters-labels" class="content-section">
+            <h2>&nbsp;Filters & Labels</h2>
+        
+            <div class="kanban-board">
+                <div class="kanban-column" data-status="not-started">
+                    <div class="kanban-column-header not-started">Not started</div>
+                    <button class="new-card-btn">+ New</button>
+                    <div class="kanban-cards"></div>
+                </div>
+                <div class="kanban-column" data-status="overdue">
+                    <div class="kanban-column-header overdue">Overdue</div>
+                    <button class="new-card-btn">+ New</button>
+                    <div class="kanban-cards"></div>
+                </div>
+                <div class="kanban-column" data-status="in-progress">
+                    <div class="kanban-column-header in-progress">In progress</div>
+                    <button class="new-card-btn">+ New</button>
+                    <div class="kanban-cards"></div>
+                </div>
+                <div class="kanban-column" data-status="done">
+                    <div class="kanban-column-header done">Done</div>
+                    <button class="new-card-btn">+ New</button>
+                    <div class="kanban-cards"></div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
     </div>
 
     <!-- Task Modal -->
     <div class="task-modal" id="task-modal">
         <div class="task-modal-content">
             <h3>Task name</h3>
+    
+            <label for="task-name"></label>
             <input type="text" id="task-name" placeholder="Task name">
+    
+            <label for="task-desc"></label>
             <textarea id="task-desc" placeholder="Description"></textarea>
+    
             <div class="task-options">
-                <label>Due Date</label><br><input id="task-duedate" type="date" />
-                <label>Priority</label>
+                <label for="task-duedate">Due Date:</label><br>
+                <input id="task-duedate" type="date" />
+    
+                <label for="task-priority">Priority:</label>
                 <select id="task-priority">
                     <option value="5">Very High</option>
                     <option value="4">High</option>
@@ -73,19 +114,19 @@
                     <option value="2">Low</option>
                     <option value="1">Very Low</option>
                 </select>
-              
             </div>
+    
             <div class="task-footer">
-                <button id="cancel-task" class="cancel-btn">Cancel</button>
-                <button id="add-task" class="add-task-btn">Add task</button>
+                <button id="cancel-task" class="cancel-btn" type="button">Cancel</button>
+                <button id="add-task" class="add-task-btn" type="button">Add task</button>
             </div>
-            
         </div>
     </div>
+    
 
     <script src="script.js"></script>
 
-
+<script src="script2.js"></script>
 
 </body>
 </html> 
