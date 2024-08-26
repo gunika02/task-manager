@@ -414,6 +414,11 @@ function addTask(name, desc, section, dueDate, priority) {
     taskItem.appendChild(taskDescription);
     taskItem.appendChild(taskDueDate);
     taskItem.appendChild(taskPriorityElement);
+
+ /* MS... Begin */
+const subpagesTaskItem = taskItem.cloneNode(true);
+/* MS... End */
+
     taskItem.appendChild(deleteButton);
     taskItem.appendChild(editButton);
     
@@ -427,7 +432,36 @@ function addTask(name, desc, section, dueDate, priority) {
     }
 
     sortTasksByPriority(taskList);
+
+
+    /* MS... Begin */
+    const dueDateYmd = new Date(dueDate);
+    const todayDate = new Date();
+    const isToday = todayDate.getFullYear() === dueDateYmd.getFullYear() && todayDate.getMonth() === dueDateYmd.getMonth() && todayDate.getDate() === dueDateYmd.getDate() ? true : false;
+    const isUpcoming = dueDateYmd > todayDate;
+    const isCompleted = dueDateYmd < todayDate;
+    if(isToday){
+        const taskItemToday = subpagesTaskItem.cloneNode(true);
+        const todayTaskList = document.getElementById(`tasks-list-today`);
+        todayTaskList.appendChild(taskItemToday);
+        sortTasksByPriority(todayTaskList);
+    } 
+    else if(isUpcoming){
+        const taskItemUpcoming = subpagesTaskItem.cloneNode(true);
+        const upcomingTaskList = document.getElementById(`tasks-list-upcoming`);
+        upcomingTaskList.appendChild(taskItemUpcoming);
+        sortTasksByPriority(upcomingTaskList);
+    } 
+    else if(isCompleted){
+        const taskItemCompleted = subpagesTaskItem.cloneNode(true);
+        const completedTaskList = document.getElementById(`tasks-list-completed`);
+        completedTaskList.appendChild(taskItemCompleted);
+        sortTasksByPriority(completedTaskList);
+    }
+    /* MS... End */
 }
+
+
 
 function formatTime(ms) {
     const hours = Math.floor(ms / (1000 * 60 * 60));
