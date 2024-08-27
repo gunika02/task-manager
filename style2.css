@@ -27,6 +27,9 @@
 .not-started {
     background-color: #5A5A5A;
 }
+.All-Task {
+    background-color: #2dc0c8;
+}
 
 .overdue {
     background-color: #dc3545;
@@ -77,18 +80,23 @@
 .card-options button:hover {
     color: #333;
 }
+.task-item {
+    position: relative; /* Ensure the delete icon is positioned correctly */
+    padding: 10px; /* Add some padding to the task item */
+}
 
-.new-card-btn {
-    background-color: #007bff;
-    color: #ffffff;
-    border: none;
-    padding: 5px;
-    width: 100%;
-    border-radius: 5px;
+.task-delete-icon {
+    position: absolute;
+    bottom: 8px; /* Slight gap from the bottom */
+    right: 8px; /* Slight gap from the right */
+    font-size: 14px; /* Slightly larger size for visibility */
+    color: #888; /* Grey color for the delete icon */
     cursor: pointer;
-    margin-bottom: 10px;
 }
 
-.new-card-btn:hover {
-    background-color: #0056b3;
+.task-delete-icon:hover {
+    color: #555; /* Darker grey on hover */
 }
+
+
+

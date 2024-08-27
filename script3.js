@@ -37,17 +37,11 @@ addTaskBtn.onclick = function() {
 
 function addTask(name, desc, section, dueDate, priority) {
     const taskItem = createTaskElement(name, desc, dueDate, priority);
-    
     const taskList = document.getElementById(`tasks-list-${section}`);
 
     if (taskList) {
         taskList.appendChild(taskItem);
     }
-
-    /* MS... Begin */
-    const subpagesTaskItem = createTaskElement(name, desc, dueDate, priority);
-    showTodayUpcomingCompletedTasks(dueDate,subpagesTaskItem);
-    /* MS... End */
 
     // Automatically move the task to the "All Task" section if the task was added to "Inbox"
     if (section === "inbox") {
@@ -61,42 +55,6 @@ function addTask(name, desc, section, dueDate, priority) {
         }
     }
 }
-
-/* MS... Begin */
-function showTodayUpcomingCompletedTasks(dueDate,subpagesTaskItem) {
-
-    const deleteButton = subpagesTaskItem.querySelector(".task-delete");
-    const editButton = subpagesTaskItem.querySelector(".task-edit");
-    if (deleteButton) {
-        deleteButton.remove();
-    }
-    if (editButton) {
-        editButton.remove();
-    }
-
-    const dueDateYmd = new Date(dueDate);
-    const todayDate = new Date();
-    const isToday = todayDate.getFullYear() === dueDateYmd.getFullYear() && todayDate.getMonth() === dueDateYmd.getMonth() && todayDate.getDate() === dueDateYmd.getDate() ? true : false;
-    const isUpcoming = dueDateYmd > todayDate;
-    const isCompleted = dueDateYmd < todayDate;
-    if(isToday){
-        const taskItemToday = subpagesTaskItem.cloneNode(true);
-        const todayTaskList = document.getElementById(`tasks-list-today`);
-        todayTaskList.appendChild(taskItemToday);
-    } 
-    else if(isUpcoming){
-        const taskItemUpcoming = subpagesTaskItem.cloneNode(true);
-        const upcomingTaskList = document.getElementById(`tasks-list-upcoming`);
-        upcomingTaskList.appendChild(taskItemUpcoming);
-    } 
-    else if(isCompleted){
-        const taskItemCompleted = subpagesTaskItem.cloneNode(true);
-        const completedTaskList = document.getElementById(`tasks-list-completed`);
-        completedTaskList.appendChild(taskItemCompleted);
-    }
-    return true;
-}
-/* MS... End */
 
 function createTaskElementForAllTasks(name, desc, priority) {
     const taskItem = document.createElement("div");
