@@ -528,3 +528,20 @@ body.dark-theme .search-container input {
 .theme-toggle.dark .mode-text {
     color: white;
 }
+
+/* MS... Begin */
+.task-complete {
+  background-color: #84640e;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-start; /* Aligns the button to the start (left side) */
+}
+
+.task-complete:hover {
+  background-color: #b51616;
+}
+/* MS... End */

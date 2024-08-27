@@ -63,17 +63,9 @@ function addTask(name, desc, section, dueDate, priority) {
 }
 
 /* MS... Begin */
+
 function showTodayUpcomingCompletedTasks(dueDate,subpagesTaskItem) {
-
-    const deleteButton = subpagesTaskItem.querySelector(".task-delete");
-    const editButton = subpagesTaskItem.querySelector(".task-edit");
-    if (deleteButton) {
-        deleteButton.remove();
-    }
-    if (editButton) {
-        editButton.remove();
-    }
-
+    hideActionButtons(subpagesTaskItem);
     const dueDateYmd = new Date(dueDate);
     const todayDate = new Date();
     const isToday = todayDate.getFullYear() === dueDateYmd.getFullYear() && todayDate.getMonth() === dueDateYmd.getMonth() && todayDate.getDate() === dueDateYmd.getDate() ? true : false;
@@ -97,6 +89,7 @@ function showTodayUpcomingCompletedTasks(dueDate,subpagesTaskItem) {
     return true;
 }
 /* MS... End */
+
 
 function createTaskElementForAllTasks(name, desc, priority) {
     const taskItem = document.createElement("div");
@@ -252,8 +245,45 @@ function createTaskElement(name, desc, dueDate, priority) {
     taskItem.appendChild(deleteButton);
     taskItem.appendChild(editButton);
 
+    /* MS... Begin */
+    const completeButton = document.createElement("button");
+    completeButton.classList.add("task-complete");
+    completeButton.textContent = "Complete";
+    completeButton.addEventListener("click", function() {
+        completeTask(taskItem);
+    });
+    taskItem.appendChild(completeButton);
+    /* MS... End */
+
+
     return taskItem;
 }
+
+/* MS... Begin */
+function completeTask(taskItem) {
+    const taskItemDone = taskItem.cloneNode(true);
+    hideActionButtons(taskItemDone);
+    const doneTaskList = document.getElementById(`tasks-list-done`);
+    doneTaskList.appendChild(taskItemDone);
+    taskItem.parentNode.removeChild(taskItem);
+}
+
+function hideActionButtons(taskItem) {
+    const deleteButton = taskItem.querySelector(".task-delete");
+    const editButton = taskItem.querySelector(".task-edit");
+    const completeButton = taskItem.querySelector(".task-complete");
+    if (deleteButton) {
+        deleteButton.remove();
+    }
+    if (editButton) {
+        editButton.remove();
+    }
+    if (completeButton) {
+        completeButton.remove();
+    }
+    return true;
+}
+/* MS... End */
 
 function deleteTask(taskItem) {
     taskItem.parentNode.removeChild(taskItem);
