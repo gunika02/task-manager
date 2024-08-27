@@ -215,18 +215,7 @@ body {
   flex: 1;
 }
 
-.task-delete {
-  background-color: #ff0000;
-  color: #fff;
-  border: none;
-  padding: 5px 10px;
-  font-size: 12px;
-  cursor: pointer;
-}
 
-.task-delete:hover {
-  background-color: #cc0000;
-}
 
 .task-item.completed {
   text-decoration: line-through;
@@ -380,37 +369,34 @@ body {
 }
 
 
-.task-edit {
-  background-color: #ffa500;
-  color: #fff;
+/* Container for Edit and Delete Buttons */
+.task-actions {
+  display: flex;
+  gap: 10px; /* Adds space between the buttons */
+  align-items: center;
+  justify-content: flex-start; /* Align buttons to the left */
+  margin-right: auto; /* Pushes buttons to the left */
+}
+
+/* Edit Button */
+.task-action {
+  color: #050000;
   border: none;
   padding: 8px;
   font-size: 14px;
   border-radius: 5px;
   cursor: pointer;
-  align-self: flex-start; /* Aligns the button to the start (left side) */
+  display: flex;
+  align-items: center;
 }
 
-.task-edit:hover {
-  background-color: #e69500;
-}
 
-/* Delete Button */
-.task-delete {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 8px;
-  font-size: 14px;
-  border-radius: 5px;
-  cursor: pointer;
-  align-self: flex-start; /* Aligns the button to the start (left side) */
-}
 
-.task-delete:hover {
-  background-color: #ff4c4c;
+/* Ensure icons align within the buttons */
+.task-edit i,
+.task-delete i {
+  margin-right: 5px; /* Space between icon and text */
 }
-
 /* Default Light Theme */
 body.light-theme {
   background-color: white;

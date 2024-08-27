@@ -224,41 +224,66 @@ function createTaskElement(name, desc, dueDate, priority) {
     taskItem.style.borderLeftColor = priorityColor;
     taskPriorityElement.style.color = priorityColor;
 
-    const deleteButton = document.createElement("button");
-    deleteButton.classList.add("task-delete");
-    deleteButton.textContent = "Delete";
-    deleteButton.addEventListener("click", function() {
-        deleteTask(taskItem);
+    
+    // const deleteButton = document.createElement("button");
+    // deleteButton.classList.add("task-delete");
+    // deleteButton.textContent = "Delete";
+    // deleteButton.addEventListener("click", function() {
+    //     deleteTask(taskItem);
+    // });
+
+    // const editButton = document.createElement("button");
+    // editButton.classList.add("task-edit");
+    // editButton.textContent = "Edit";
+    // editButton.addEventListener("click", function() {
+    //     editTask(taskItem, name, desc, dueDate, priority);
+    // });
+
+
+    // Create action container and buttons
+    const actionContainer = document.createElement("div");
+    actionContainer.classList.add("task-actions");
+
+    const editButton = document.createElement("span");
+editButton.classList.add("task-action");
+editButton.innerHTML = '<i class="fas fa-edit"></i>Edit'; // Icon + text
+editButton.addEventListener("click", function() {
+    editTask(taskItem, name, desc, dueDate, priority);
+});
+
+const deleteButton = document.createElement("span");
+deleteButton.classList.add("task-action");
+deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>Delete'; // Icon + text
+deleteButton.addEventListener("click", function() {
+    deleteTask(taskItem);
+});
+
+const completeButton = document.createElement("span");
+    completeButton.classList.add("task-action");
+    completeButton.innerHTML = '<i class="fa-solid fa-check"></i>Complete';
+    completeButton.addEventListener("click", function() {
+        completeTask(taskItem);
     });
 
-    const editButton = document.createElement("button");
-    editButton.classList.add("task-edit");
-    editButton.textContent = "Edit";
-    editButton.addEventListener("click", function() {
-        editTask(taskItem, name, desc, dueDate, priority);
-    });
+
+    actionContainer.appendChild(editButton);
+    actionContainer.appendChild(deleteButton);
+    actionContainer.appendChild(completeButton);
 
     taskItem.appendChild(taskTitle);
     taskItem.appendChild(taskDescription);
     taskItem.appendChild(taskDueDate);
     taskItem.appendChild(taskPriorityElement);
-    taskItem.appendChild(deleteButton);
-    taskItem.appendChild(editButton);
-
+    taskItem.appendChild(actionContainer);
+    
     /* MS... Begin */
-    const completeButton = document.createElement("button");
-    completeButton.classList.add("task-complete");
-    completeButton.textContent = "Complete";
-    completeButton.addEventListener("click", function() {
-        completeTask(taskItem);
-    });
-    taskItem.appendChild(completeButton);
+    
+    // taskItem.appendChild(completeButton);
     /* MS... End */
 
 
     return taskItem;
 }
-
 /* MS... Begin */
 function completeTask(taskItem) {
     const taskItemDone = taskItem.cloneNode(true);
