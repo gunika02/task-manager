@@ -372,13 +372,12 @@ body {
 /* Container for Edit and Delete Buttons */
 .task-actions {
   display: flex;
-  gap: 10px; /* Adds space between the buttons */
+  gap: 10px;
   align-items: center;
-  justify-content: flex-start; /* Align buttons to the left */
-  margin-right: auto; /* Pushes buttons to the left */
+  justify-content: flex-start;
+  margin-right: auto; 
 }
 
-/* Edit Button */
 .task-action {
   color: #050000;
   border: none;
@@ -386,17 +385,25 @@ body {
   font-size: 14px;
   border-radius: 5px;
   cursor: pointer;
-  display: flex;
+  display: flex; 
   align-items: center;
 }
 
 
-
-/* Ensure icons align within the buttons */
-.task-edit i,
-.task-delete i {
-  margin-right: 5px; /* Space between icon and text */
+.task-action i {
+  margin-right: 5px; 
+  font-size: 16px; 
+  display: inline-block; 
+  vertical-align: middle; 
 }
+
+
+.task-actions {
+  gap: 15px; 
+}
+
+
+
 /* Default Light Theme */
 body.light-theme {
   background-color: white;
