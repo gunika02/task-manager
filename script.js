@@ -417,6 +417,23 @@ function getPriorityColor(priority) {
     }
 }
 
+// Search functionality
+document.getElementById('searchTask').addEventListener('input', function() {
+    let filter = this.value.toLowerCase();
+    let tasks = document.querySelectorAll(`#tasks-list-${currentSection} .task-item`);
+
+    tasks.forEach(function(task) {
+        let text = task.textContent.toLowerCase();
+        task.style.display = text.includes(filter) ? '' : 'none';
+    });
+
+    const visibleTasks = Array.from(tasks).filter(task => task.style.display !== 'none');
+    const emptyState = document.getElementById(`empty-state-${currentSection}`);
+    emptyState.style.display = visibleTasks.length > 0 ? 'none' : 'block';
+});
+
+
+
 // Drag and Drop functionality
 function handleDragStart(e) {
     e.dataTransfer.setData("text/html", e.target.textContent); // Store the full HTML
@@ -478,6 +495,10 @@ themeToggleBtn.addEventListener('click', () => {
         themeToggleBtn.classList.remove('dark');
     }
 });
+
+
+
+
 
 // Navigation control
 menuItems.forEach(item => {
