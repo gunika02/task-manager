@@ -1,4 +1,4 @@
-body {
+.body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
@@ -537,4 +537,83 @@ body.dark-theme .search-container input {
 .task-complete:hover {
   background-color: #b51616;
 }
+/* Base styles (for desktop) */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #fff;
+  height: 100vh;
+  padding: 20px;
+  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+}
+
+.main-content {
+  margin-left: 290px;
+  padding: 20px;
+}
+
+/* Task styles... remain the same */
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 200px; /* Reduce sidebar width */
+  }
+
+  .main-content {
+    margin-left: 220px; /* Adjust main content margin */
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 180px; /* Further reduce sidebar width */
+    padding: 15px; /* Adjust padding */
+  }
+
+  .main-content {
+    margin-left: 200px; /* Adjust main content margin */
+  }
+
+  .task-modal-content {
+    width: 90%; /* Make modal content more flexible */
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 100%;
+    height: auto; /* Make sidebar adaptive */
+    position: relative; /* Remove fixed position */
+    box-shadow: none; /* Remove shadow on mobile */
+  }
+
+  .main-content {
+    margin-left: 0; /* No margin on mobile */
+    padding: 10px; /* Reduce padding */
+  }
+
+  .task-item {
+    padding: 10px; /* Adjust padding */
+  }
+
+  .theme-toggle {
+    width: 120px; /* Adjust theme toggle for mobile */
+    height: 40px;
+    top: 10px; /* Adjust position */
+    right: 10px;
+  }
+
+  .toggle-inner {
+    justify-content: space-between; /* Adjust content alignment */
+  }
+}
+
 /* MS... End */
