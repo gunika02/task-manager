@@ -413,7 +413,7 @@ function getPriorityColor(priority) {
         case "1":
             return "#86bcec"; // Very Low
         default:
-            return "#ccc"; // Default color if priority is not recognized
+            return "#ccc"; // Default color if  priority is not recognized
     }
 }
 

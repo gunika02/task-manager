@@ -449,7 +449,7 @@ body.dark-theme input, body.dark-theme textarea, body.dark-theme select {
 }
 
 
-.search-container input {
+.search-container  input {
   background-color: #f0f0f0;
   border: 1px solid #ccc;
   color: black;
