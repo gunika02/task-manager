@@ -17,6 +17,7 @@ cancelTaskBtn.onclick = function() {
     modal.style.display = "none";
 }
 
+
 addTaskBtn.onclick = function() {
     const taskName = document.getElementById("task-name").value;
     const taskDesc = document.getElementById("task-desc").value;
